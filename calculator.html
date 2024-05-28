@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="display" style="text-align: center;">
+        <input type="text" name="" id="display">
+        <br>
+        <button class="button" onclick="
+            currentDisplay = '';
+            document.querySelector('#display').value = currentDisplay;
+        ">
+        c
+        </button>
+        <button class="button" onclick="
+        currentDisplay = currentDisplay + '1';
+        document.querySelector('#display').value = currentDisplay
+        ">
+            1</button>
+        <button class="button" onclick="
+        currentDisplay = currentDisplay + '2'
+        document.querySelector('#display').value = currentDisplay
+        ">2</button>
+
+        <button class="button" onclick="
+        currentDisplay = currentDisplay + '3'
+        document.querySelector('#display').value = currentDisplay
+        ">3</button>
+        <button class="button" onclick=" 
+        currentDisplay = currentDisplay + '+'
+        document.querySelector('#display').value = currentDisplay">+</button>
+
+        <button class="button" onclick="
+        currentDisplay = eval(currentDisplay)
+        document.querySelector('#display').value = currentDisplay">
+        =</button>
+    </div>
+    <script>
+        let currentDisplay = ''
+        document.querySelector('#display').value = currentDisplay;
+    </script>
+</body>
+</html>

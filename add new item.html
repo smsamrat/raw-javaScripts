@@ -1,0 +1,20 @@
+<ul id="itemList"></ul>
+<button id="addItemButton">Add Item</button>
+<script>
+    // Function to add a new item to the list
+function addItem() {
+    // Get the reference to the list
+    var itemList = document.getElementById("itemList");
+
+    // Create a new list item
+    var newItem = document.createElement("li");
+    newItem.appendChild(document.createTextNode("New Item"));
+
+    // Append the new item to the list
+    itemList.appendChild(newItem);
+}
+
+// Attach the function to the button click event
+document.getElementById("addItemButton").addEventListener("click", addItem);
+
+</script>

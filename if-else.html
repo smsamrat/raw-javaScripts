@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Game Practice</h1>
+        <button onclick="
+        computerChoice = genarateRandomFunction()
+        
+        resultMsg = resultMsgFunction('Ball',computerChoice)
+
+        alertMsg('Ball',computerChoice,resultMsg)
+
+        ">Ball</button>
+
+        <button onclick="
+        
+        computerChoice = genarateRandomFunction()
+        
+        resultMsg = resultMsgFunction('Bat',computerChoice)
+
+        alertMsg('Bat',computerChoice,resultMsg)
+
+        ">Bat</button>
+    </div>
+    <script>
+
+        let score = {
+            win : 0,
+            lost : 0,
+            tie : 0,
+            displayScore: function() {
+                return `No of matches Won:${score.win}, Lost:${score.lost}, Tie: ${score.tie}`;
+            }
+        };
+        
+
+        function genarateRandomFunction(){
+            randomNumber = Math.random() * 3
+            randomNumber = Math.ceil(randomNumber)
+            let computerChoice;
+            if (randomNumber === 1){
+                computerChoice = 'Ball';
+            }
+            else if(randomNumber === 2){
+                computerChoice = 'Bat';
+            }
+            else{
+                computerChoice = 'Stump';
+            }
+            return computerChoice
+        }
+
+        function resultMsgFunction(userchoice,computerChoice){
+            let resultMsg;
+            if (userchoice === 'Ball'){
+                if(computerChoice === 'Ball'){
+                    score.tie += 1
+                    resultMsg = `It's tie`     
+                }
+                else if(computerChoice === 'Bat'){
+                    score.lost += 1
+                    resultMsg = 'Computer has Won'
+                }else{
+                    score.win += 1
+                    resultMsg = 'User has won'
+                }
+                return resultMsg;
+            }
+            else {
+                if(computerChoice === 'Ball'){
+                    resultMsg = 'User has Won'     
+                }
+                else if(computerChoice === 'Bat'){
+                    resultMsg = `It's tie` 
+                }else{
+                    resultMsg = 'Computer has won'
+                }
+                return resultMsg
+            }
+            console.log(score)
+        }
+        
+        let existingScore = localStorage.getItem('Score')
+        function alertMsg(userChoice,computerChoice,resultMsg){
+            localStorage.setItem('Score',JSON.stringify(score))
+            
+            if (existingScore !== undefined){
+                existingScore = JSON.parse(existingScore)
+                alert(`Score:Won:${existingScore.win}, Lost:${existingScore.lost}, Tie: ${existingScore.tie}`);
+                // alert(`User choice ${userChoice}, computer choice ${computerChoice}, ${resultMsg}
+                // ${score.displayScore()}
+                // `)
+            }
+        }
+    </script>
+</body>
+</html>

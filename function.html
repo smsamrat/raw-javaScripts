@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let callBack = () => console.log("I am call back function")
+
+        function summation(callback){
+            console.log(5*5)
+            callBack()
+        }
+        summation(callBack)
+    </script>
+</body>
+</html>

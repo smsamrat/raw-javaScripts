@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color: brown;
+            color:white
+        }
+        .black{
+            background-color: black;
+            color:white
+        }
+    </style>
+</head>
+<body>
+    <button id="increament" onclick="increment()">0</button>
+    <script>
+   
+        let element = document.querySelector("#increament") 
+        let count = localStorage.getItem("count") || 0
+
+        function increment() {
+            count++;
+            localStorage.setItem("count", count);
+            element.innerText = count;
+            
+            if (count % 2 === 0) {
+                element.classList.remove("black");
+                element.classList.add("red");
+            } else {
+                element.classList.remove("red");
+                element.classList.add("black");
+            }
+        }
+        element.innerText = count;
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: block; text-align: center;">
+        <button class="button" onclick="
+            count = count + 1
+            document.querySelector('.cart-summary').innerText=`Bag items count ${count}`
+            ">
+           Add Item     
+        </button>
+        <h2 class="cart-summary"></h2>
+
+        <button class="" onclick="
+            count -= 1
+            document.querySelector('.cart-summary').innerText= `Bag items count ${count}`
+        ">Remove Item</button>
+    </div>
+
+    <script>
+        let count = 5
+        document.querySelector(".cart-summary").innerText=`Bag items count ${count}`
+    </script>
+</body>
+</html>
